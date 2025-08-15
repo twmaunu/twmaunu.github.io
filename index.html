@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyler Maunu - Assistant Professor of Mathematics</title>
+    <meta name="description" content="Tyler Maunu is an Assistant Professor of Mathematics at Brandeis University specializing in statistics, machine learning, computer vision, and nonconvex optimization.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003c71;
+            --accent-blue: #0066cc;
+            --light-blue: #e8f2ff;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 102, 204, 0.05) 0%, transparent 70%);
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hero-text .title {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        .hero-text .affiliation {
+            font-size: 1.2rem;
+            color: var(--accent-blue);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+        }
+
+        .contact-info a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+            font-weight: 700;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            box-shadow: 0 10px 30px rgba(0, 60, 113, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.2), transparent);
+        }
+
+
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-blue);
+        }
+
+        /* About Section */
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        /* Research Section */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .research-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .research-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .research-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Teaching Section */
+        .course-list {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .course-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .course-item:last-child {
+            border-bottom: none;
+        }
+
+        .course-item:hover {
+            padding-left: 1rem;
+            color: var(--accent-blue);
+        }
+
+        /* Publications Section */
+        .publication-item {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 10px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 102, 204, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .publication-item:hover::before {
+            left: 100%;
+        }
+
+        .publication-item:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .publication-title {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-title a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .publication-title a:hover {
+            color: var(--accent-blue);
+            text-decoration: underline;
+        }
+
+        .publication-authors {
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                order: 2;
+            }
+
+            .hero-image {
+                order: 1;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-image {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <strong>Tyler Maunu</strong>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#cv">CV</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="maunu-tyler.jpg" alt="Tyler Maunu" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+            </div>
+            <div class="hero-text">
+                <h1>Tyler Maunu</h1>
+                <div class="title">Assistant Professor of Mathematics</div>
+                <div class="affiliation">Brandeis University</div>
+                <div class="contact-info">
+                    <div>📧 <a href="mailto:maunu@brandeis.edu">maunu@brandeis.edu</a></div>
+                    <div>📍 Office: Goldsmith 313</div>
+                    <div>📚 F25: MATH 40A - Introduction to Applied Mathematics</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+        <h2 class="section-title">About</h2>
+        <div class="about-content">
+            <p>I am an Assistant Professor of Mathematics at Brandeis University. In 2018, I obtained my PhD in Mathematics and MS in Statistics at the University of Minnesota, and from 2018-2021 I was an Instructor of Applied Mathematics at MIT.</p>
+            <p>My current research interests span statistics, machine learning, computer vision, and nonconvex optimization. In the past, I have specifically focused on the problem of robust subspace recovery and more recently I have been interested in problems related to optimal transport.</p>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="fade-in">
+        <h2 class="section-title">Research Interests</h2>
+        <div class="research-grid">
+            <div class="research-card">
+                <h3>Robust Machine Learning</h3>
+                <p>Developing robust algorithms for learning from high-dimensional data with theoretical guarantees.</p>
+            </div>
+            <div class="research-card">
+                <h3>Optimal Transport</h3>
+                <p>Investigating computational and theoretical aspects of optimal transport with applications to generative models.</p>
+            </div>
+            <div class="research-card">
+                <h3>Computer Vision</h3>
+                <p>Developing algorithms and theory for 3D vision problems.</p>
+            </div>
+            <div class="research-card">
+                <h3>Nonconvex Optimization</h3>
+                <p>Theory and algorithms for solving challenging optimization problems arising in modern data analysis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaching Section -->
+    <section id="teaching" class="fade-in">
+        <h2 class="section-title">Teaching</h2>
+        <div class="course-list">
+            <div class="course-item">
+                <strong>Fall 2025:</strong> MATH 40A - Introduction to Applied Mathematics
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="fade-in">
+        <h2 class="section-title">Recent Papers</h2>
+        <div class="publication-item">
+            <div class="publication-title">
+                <a href="https://arxiv.org/abs/2506.20533" target="_blank">Global Convergence of Iteratively Reweighted Least Squares for Robust Subspace Recovery</a>
+            </div>
+            <div class="publication-authors">G. Lerman, K. Li, T. Maunu and T. Zhang, 2025</div>
+        </div>
+        <div class="publication-item">
+            <div class="publication-title">
+                <a href="https://arxiv.org/abs/2412.13928" target="_blank">Subspace Langevin Monte Carlo</a>
+            </div>
+            <div class="publication-authors">T. Maunu and J. Yao, 2025</div>
+        </div>
+        <div class="publication-item">
+            <div class="publication-title">
+                <a href="https://proceedings.mlr.press/v238/maunu24a/maunu24a.pdf" target="_blank">Acceleration and implicit regularization in Gaussian phase retrieval.</a>
+            </div>
+            <div class="publication-authors">T. Maunu and M. Molina-Fructuoso - International Conference on Artificial Intelligence and Statistics (AISTATS), 2024</div>
+        </div>
+        <p style="margin-top: 2rem; color: var(--text-light);">
+            <em>For a complete list of publications, please see my CV or <a href="https://scholar.google.com/citations?user=S4nBXhgAAAAJ&hl=en&oi=ao" style="color: var(--accent-blue);">Google Scholar</a> profile.</em>
+        </p>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="fade-in">
+        <h2 class="section-title">Curriculum Vitae</h2>
+        <p>Download my complete CV for detailed information about my research, publications, and academic experience.</p>
+        <a href="#" style="display: inline-block; margin-top: 1rem; padding: 1rem 2rem; background: var(--accent-blue); color: white; text-decoration: none; border-radius: 5px; transition: var(--transition);" 
+           onmouseover="this.style.background='var(--primary-blue)'" 
+           onmouseout="this.style.background='var(--accent-blue)'">
+            Download CV (PDF)
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Tyler Maunu. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Dynamic navigation background
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
