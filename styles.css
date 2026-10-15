@@ -3,29 +3,30 @@
 @font-face { font-family: Inconsolata; src: url("assets/fonts/inconsolata-regular.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
 @font-face { font-family: Inconsolata; src: url("assets/fonts/inconsolata-semibold.ttf") format("truetype"); font-style: normal; font-weight: 600; font-display: swap; }
 
-:root { --background: #f2f6f7; --paper: #fff; --banner: #f8f8f8; --ink: #2a2a2a; --muted: #6a6a6a; --link: #24678d; --line: #e9e9e9; --sans: Cabin, Arial, sans-serif; --body: Inconsolata, "Courier New", monospace; }
+:root { color-scheme: dark; --background: #20211f; --paper: #272826; --banner: #2e302b; --ink: #e4d3a3; --highlight: #f0dda5; --muted: #b8af96; --link: #9ccac3; --link-hover: #c8e8e1; --line: #42453b; --sans: Cabin, Arial, sans-serif; --body: Inconsolata, "Courier New", monospace; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 24px; }
 body { margin: 0; background: var(--background); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-::selection { background: #d9e8ef; }
+::selection { background: var(--highlight); color: var(--paper); }
 p, h1, h2, h3, figure { margin: 0; }
 a { color: var(--link); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
-a:hover { color: #174761; }
-a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
-strong { font-weight: 600; }
+a:hover { color: var(--link-hover); }
+a:focus-visible { outline: 2px solid var(--highlight); outline-offset: 4px; }
+strong { color: var(--highlight); font-weight: 600; }
 img { display: block; max-width: 100%; }
-h1, h2, h3 { font-family: var(--sans); line-height: 1.25; }
+h1, h2, h3 { color: var(--highlight); font-family: var(--sans); line-height: 1.25; }
 .site-shell { width: min(1100px, 100%); margin-inline: auto; background: var(--paper); min-height: 100vh; }
 .wrap { width: calc(100% - 100px); margin-inline: auto; }
-.skip-link { position: absolute; top: -100px; left: 20px; z-index: 5; padding: 10px 18px; background: var(--ink); color: #fff; }
+.skip-link { position: absolute; top: -100px; left: 20px; z-index: 5; padding: 10px 18px; background: var(--highlight); color: var(--paper); }
 .skip-link:focus { top: 12px; }
+.skip-link:hover { color: var(--paper); }
 .nav { display: flex; align-items: center; justify-content: space-between; min-height: 125px; gap: 30px; }
-.brand { font-family: var(--sans); font-size: 32px; font-weight: 700; line-height: 1.2; letter-spacing: 0.3px; color: #111; text-decoration: none; white-space: nowrap; }
-.brand:hover { color: #111; text-decoration: none; }
+.brand { font-family: var(--sans); font-size: 32px; font-weight: 700; line-height: 1.2; letter-spacing: 0.3px; color: var(--highlight); text-decoration: none; white-space: nowrap; }
+.brand:hover { color: var(--highlight); text-decoration: none; }
 .site-title { font-size: inherit; line-height: 1.2; }
 .nav-links { display: flex; gap: 13px; list-style: none; padding: 0; margin: 0; }
-.nav-links a { display: flex; align-items: center; min-height: 44px; padding: 10px 14px; font-family: var(--sans); font-size: 12px; font-weight: 400; text-transform: uppercase; letter-spacing: 1.4px; color: #555; text-decoration: none; }
-.nav-links a:hover { color: #111; }
+.nav-links a { display: flex; align-items: center; min-height: 44px; padding: 10px 14px; font-family: var(--sans); font-size: 12px; font-weight: 400; text-transform: uppercase; letter-spacing: 1.4px; color: var(--muted); text-decoration: none; }
+.nav-links a:hover { color: var(--highlight); }
 .nav-links [aria-current="page"] { color: var(--link); }
 .home-content { padding-top: 58px; padding-bottom: 44px; }
 .home-layout { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr); gap: 40px; align-items: start; }
@@ -43,7 +44,6 @@ h1, h2, h3 { font-family: var(--sans); line-height: 1.25; }
 .home-copy > .teaching-link { margin-bottom: 22px; }
 .site-footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; border-top: 1px solid var(--line); padding-block: 24px 34px; color: var(--muted); font-size: 13px; }
 .site-footer div { display: flex; gap: 24px; }
-.site-footer a { color: var(--muted); }
 .page-heading { margin-inline: -50px; padding: 47px 50px 45px; background: var(--banner); text-align: center; }
 .page-heading h1 { font-size: 42px; font-weight: 700; }
 .page-intro { max-width: 680px; margin: 22px auto 0; font-size: 17px; }
