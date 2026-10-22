@@ -7,7 +7,7 @@
 @font-face { font-family: Newsreader; src: url("assets/fonts/newsreader-regular.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
 @font-face { font-family: Newsreader; src: url("assets/fonts/newsreader-medium.ttf") format("truetype"); font-style: normal; font-weight: 500; font-display: swap; }
 
-:root { color-scheme: dark; --background: #20211f; --paper: #272826; --banner: #2e302b; --ink: #e4d3a3; --highlight: #f0dda5; --muted: #b8af96; --link: #9ccac3; --link-hover: #c8e8e1; --line: #42453b; --sans: "Source Sans 3", Arial, sans-serif; --body: "IBM Plex Mono", "Courier New", monospace; --heading: var(--sans); --body-size: 16px; --body-leading: 1.75; --brand-size: 36px; --brand-mobile: 34px; --brand-weight: 600; --brand-tracking: -0.025em; --section-size: 26px; --section-weight: 600; --note-font: var(--body); --note-size: 13px; }
+:root { color-scheme: light; --background: #e2d4aa; --paper: #eee2bd; --banner: #e7d8aa; --ink: #272826; --highlight: #20211f; --muted: #605e4b; --link: #2e645c; --link-hover: #184a43; --line: #c9bc92; --sans: "Source Sans 3", Arial, sans-serif; --body: "IBM Plex Mono", "Courier New", monospace; --heading: var(--sans); --body-size: 16px; --body-leading: 1.75; --brand-size: 36px; --brand-mobile: 34px; --brand-weight: 600; --brand-tracking: -0.025em; --section-size: 26px; --section-weight: 600; --note-font: var(--body); --note-size: 13px; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 24px; }
 body { margin: 0; background: var(--background); color: var(--ink); font-family: var(--body); font-size: var(--body-size); line-height: var(--body-leading); letter-spacing: 0; -webkit-font-smoothing: antialiased; }
